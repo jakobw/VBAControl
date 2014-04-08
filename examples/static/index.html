@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no">
+    <title>VBAControl</title>
+    <style type="text/css" media="screen">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        background: #eee8d5;
+      }
+
+      button {
+        border: none;
+        outline: none;
+      }
+      button:active {
+        outline: none;
+      }
+      .ab:active {
+        box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      #move {
+        width: 40%;
+        padding: 10% 0 0 10%;
+      }
+
+      #move .button, #move .placeholder {
+        background: #586e75;
+        display: block;
+        width: 10vw;
+        height: 10vw;
+      }
+
+      #left-right .button, #left-right .placeholder {
+        float: left;
+      }
+
+      #move .up, #move .down {
+        margin-left: 10vw;
+      }
+
+      #move .up { border-radius: 1vw 1vw 0 0; }
+      #move .down { border-radius: 0 0 1vw 1vw; }
+      #move .left { border-radius: 1vw 0 0 1vw; }
+      #move .right { border-radius: 0 1vw 1vw 0; }
+
+      #move, #right { float: left; }
+
+      #right {
+        width: 40%;
+        padding: 20% 0 0 10%;
+        position: relative;
+      }
+
+      .ab {
+        background: #dc322f;
+        border-radius: 100%;
+        font-size: 90%;
+        width: 10vw;
+        height: 10vw;
+        position: absolute;
+      }
+
+      .ab.a {
+        margin-top: -5vw;
+        margin-left: 15vw;
+      }
+
+      .button.start {
+        background: #586e75;
+        width: 6vw;
+        height: 2.5vw;
+        margin-top: 20vw;
+        left: 0;
+        border-radius: 1vw;
+        position: absolute;
+      }
+    </style>
+    <script src="jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function () {
+        $('.button').click(function () {
+          $.get('/button/' + $(this).attr('name'));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="controls">
+
+      <div id="move">
+        <button name="up" class="button up"></button>
+        <div id="left-right">
+          <button name="left" class="button left"></button>
+          <div class="placeholder"></div>
+          <button name="right" class="button right"></button>
+          <div style="clear: both">
+          </div>
+        </div>
+        <button name="down" class="button down"></button>
+      </div>
+
+      <div id="right">
+        <button name="b" class="button ab b"></button>
+        <button name="a" class="button ab a"></button>
+        <button name="start" class="button start"></button>
+      </div>
+    </div>
+  </body>
+</html>
