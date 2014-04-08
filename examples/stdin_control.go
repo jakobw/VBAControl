@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"tpp/vba_control"
+	"vba_control"
 )
 
 func getInputFromStdin(vba *vba_control.Client) {
